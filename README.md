@@ -1,43 +1,46 @@
-# Online RSVP System (RSVP-website)
+# 💌 RSVP-website: Online Event RSVP System
 
-An **Online RSVP (Respond to Invitation)** web application built in PHP that allows users to sign up, log in, view events, RSVP, and receive email notifications.  
-This project helps streamline managing RSVPs, guest attendance tracking, and emailing within events.
+A modern and efficient **Online RSVP (Respond to Invitation)** web application built with **PHP and MySQL** that allows users to seamlessly sign up, log in, view events, submit their RSVPs, and receive instant email confirmations. This project is designed to streamline event management, guest attendance tracking, and communication.
 
-## 🚀 Features
+## 🌟 Key Features
 
-- User registration & login system (with sessions & basic authentication)  
-- Event viewing page for users  
-- RSVP submission and email notification after RSVP  
-- Admin-style event creation and management (if applicable)  
-- Email sending via built-in PHP mailer (or configured mail library)  
-- Clear separation of files: includes folder for reusable functions/config, main pages for user flows  
+| Icon | Feature | Description |
+| :---: | :--- | :--- |
+| 🔑 | **User Authentication** | Secure registration and login system utilizing PHP sessions and basic authentication. |
+| 🗓️ | **Event Viewing** | Dedicated page for logged-in users to browse available events. |
+| ✅ | **RSVP Submission** | Easy submission of 'Yes/No/Maybe' responses to events. |
+| 📧 | **Email Notifications** | Automated confirmation emails sent after a successful RSVP using PHPMailer or built-in functions. |
+| 🧑‍💻 | **Admin Management** | (If applicable) Functionality for event creation, editing, and deletion by administrators. |
+| 📂 | **Clean Architecture** | Clear separation of concerns with an `includes/` folder for reusable config and functions. |
 
 ## 🛠 Tech Stack
 
-- **Frontend**: HTML + CSS + (possibly basic layout animations/gifs)  
-- **Backend**: PHP  
-- **Emailing**: PHP mail function or a mail library (e.g., PHPMailer) included in the “PHPMailer” folder.  
-- **Database**: MySQL or another relational database accessed via PHP (`includes/` directory likely contains `config.php` etc.)  
-- **Hosting/Environment**: Local PHP server (XAMPP/LAMP) or deployed on a PHP-enabled host  
+| Category | Technology | Notes |
+| :--- | :--- | :--- |
+| **Backend** | PHP | Core logic and server-side processing. |
+| **Database** | MySQL (or similar RDBMS) | For storing user, event, and RSVP data. |
+| **Frontend** | HTML, CSS | Basic structure and styling. |
+| **Emailing** | PHPMailer / PHP Mail function | For handling email deliveries. |
+| **Environment**| XAMPP/LAMP | Local development setup. |
 
-## 📂 Project Structure
-
+## 📁 Project Structure
+```
 RSVP-website/
 │
-├── index.php # Homepage / landing page
-├── landingPage.php # After login landing dashboard
-├── login.php # Login form
-├── signup.php # User registration form
-├── logout.php # Logout script
-├── send_email.php # Email-notification logic
-├── event.gif # Graphic for events page
-├── people.png # Graphic icon for users/attendees
-├── includes/ # Shared config, functions, database connection
-│ ├── config.php # DB connection & site-wide config
-│ └── functions.php # Reusable helper functions
-├── PHPMailer/ # Mail library (if used)
-└── … # Plus any other folders/files
-
+├── index.php # Landing Page / Guest Entry
+├── landingPage.php # User Dashboard (Post-Login)
+├── login.php # Login Form
+├── signup.php # User Registration Form
+├── logout.php # Logout Script
+├── send_email.php # Email Notification Logic
+├── event.gif # Event Graphic
+├── people.png # User/Attendee Icon
+├── includes/
+│ ├── config.php # ⚙️ DB connection & Site-wide config
+│ └── functions.php # 🧩 Reusable helper functions
+├── PHPMailer/ # 📧 External Mail Library (if used)
+└── … # Other assets/files
+```
 bash
 Copy code
 
@@ -48,7 +51,7 @@ Copy code
    git clone https://github.com/Raman-954/RSVP-website.git
 Copy to server directory (e.g., htdocs/RSVP-website for XAMPP, or your host’s public_html folder)
 
-Create database
+## Create database
 
 Use phpMyAdmin or MySQL CLI
 
@@ -61,7 +64,7 @@ Configure database connection
 Open includes/config.php
 
 Set your database credentials:
-
+```
 php
 Copy code
 $host = 'localhost';
@@ -70,18 +73,18 @@ $pass = 'your_db_password';
 $dbname = 'rsvp_db';
 $conn = mysqli_connect($host, $user, $pass, $dbname);
 Ensure emailing works
-
+```
 If using PHPMailer, configure SMTP credentials in send_email.php or the library config
 
 Test sending a test email to confirm setup
 
-Run the application
-
+## Run the application
+```
 Open in browser: http://localhost/RSVP-website/
-
+```
 Register a user, login, view events, RSVP, check email
 
-👩‍💻 Usage Workflow
+## 👩‍💻 Usage Workflow
 User:
 
 Visit the signup page → create account
@@ -99,7 +102,7 @@ Log in with admin account
 Create/edit/delete events
 
 View list of RSVPs and send follow-up emails
-
+```
 🧩 Database Schema (Sample)
 users table
 Column	Type	Description
@@ -125,8 +128,8 @@ user_id	INT (FK)	Linked to users.id
 event_id	INT (FK)	Linked to events.id
 status	ENUM	‘Yes’, ‘No’, ‘Maybe’
 timestamp	DATETIME	Time of submission
-
-🧾 Future Enhancements
+```
+### 🧾 Future Enhancements
 Add admin user management (create/manage admin accounts)
 
 Enhance UI/UX with responsive design (mobile friendly)
@@ -139,7 +142,7 @@ Integrate QR code check-in for events
 
 Allow multiple event categories or image uploads for events
 
-💡 Learning Outcomes
+### 💡 Learning Outcomes
 Develop a full-stack web application with PHP & MySQL
 
 Handle user authentication, sessions, and CRUD operations
@@ -150,10 +153,12 @@ Design database schema and use relational connections
 
 Integrate frontend and backend for real-world event RSVP use case
 
-🧑‍💻 Author
+### 🧑‍💻 Author
+```
 Raman Kumar
 📧 raman2511kumar@gmail.com
-🌐 GitHub: Raman-954
 
+🌐 GitHub: Raman-954
+```
 🪪 License
 This project is licensed under the MIT License (or specify whichever you use).
